@@ -4,16 +4,14 @@
   "type": "array",
   "definitions": {},
   "title": "Yearn Registry",
-  "description":"Contract Registry",
+  "description": "Contract Registry",
   "items": {
     "$id": "#/address",
     "type": "string",
     "title": "Yearn Registry",
-    "description":"checksum contract address",
+    "description": "checksum contract address",
     "default": "0x3eE41C098f9666ed2eA246f4D2558010e59d63A0",
-    "examples": [
-  "0x3eE41C098f9666ed2eA246f4D2558010e59d63A0"
-],
-    "pattern":"^([0-9a-f]{40})$"
+    "examples": ["0x3eE41C098f9666ed2eA246f4D2558010e59d63A0"],
+    "pattern": "^([0-9a-f]{40})$"
   }
 }
