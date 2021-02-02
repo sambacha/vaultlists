@@ -102,7 +102,7 @@
         }
       ]
     },
-    "TokenInfo": {
+    "StrategyId": {
       "type": "object",
       "description": "Metadata for a single token in a token list",
       "additionalProperties": false,
@@ -201,7 +201,7 @@
       "type": "array",
       "description": "The list of vaults included in the list",
       "items": {
-        "$ref": "#/definitions/TokenInfo"
+        "$ref": "#/definitions/StrategyId"
       },
       "minItems": 1,
       "maxItems": 10000

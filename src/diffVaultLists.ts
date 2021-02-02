@@ -1,7 +1,7 @@
-import { TokenInfo } from "./types";
+import { StrategyId } from "./types";
 
-export type TokenInfoChangeKey = Exclude<keyof TokenInfo, "address" | "chainId">;
-export type TokenInfoChanges = Array<TokenInfoChangeKey>;
+export type StrategyIdChangeKey = Exclude<keyof StrategyId, "address" | "chainId">;
+export type StrategyIdChanges = Array<StrategyIdChangeKey>;
 
 /**
  * compares two token info key values
@@ -9,7 +9,7 @@ export type TokenInfoChanges = Array<TokenInfoChangeKey>;
  * @param a comparison item a
  * @param b comparison item b
  */
-function compareTokenInfoProperty(a: unknown, b: unknown): boolean {
+function compareStrategyIdProperty(a: unknown, b: unknown): boolean {
   if (a === b) return true;
   if (typeof a !== typeof b) return false;
   if (Array.isArray(a) && Array.isArray(b)) {
@@ -25,17 +25,17 @@ export interface TokenListDiff {
   /**
    * Tokens from updated with chainId/address not present in base list
    */
-  readonly added: TokenInfo[];
+  readonly added: StrategyId[];
   /**
    * Tokens from base with chainId/address not present in the updated list
    */
-  readonly removed: TokenInfo[];
+  readonly removed: StrategyId[];
   /**
    * The token info that changed
    */
   readonly changed: {
     [chainId: number]: {
-      [address: string]: TokenInfoChanges;
+      [address: string]: StrategyIdChanges;
     };
   };
 }
@@ -45,9 +45,9 @@ export interface TokenListDiff {
  * @param base base list
  * @param update updated list
  */
-export function diffTokenLists(base: TokenInfo[], update: TokenInfo[]): TokenListDiff {
+export function diffTokenLists(base: StrategyId[], update: StrategyId[]): TokenListDiff {
   const indexedBase = base.reduce<{
-    [chainId: number]: { [address: string]: TokenInfo };
+    [chainId: number]: { [address: string]: StrategyId };
   }>((memo, tokenInfo) => {
     if (!memo[tokenInfo.chainId]) memo[tokenInfo.chainId] = {};
     memo[tokenInfo.chainId][tokenInfo.address] = tokenInfo;
@@ -55,10 +55,10 @@ export function diffTokenLists(base: TokenInfo[], update: TokenInfo[]): TokenLis
   }, {});
 
   const newListUpdates = update.reduce<{
-    added: TokenInfo[];
+    added: StrategyId[];
     changed: {
       [chainId: number]: {
-        [address: string]: TokenInfoChanges;
+        [address: string]: StrategyIdChanges;
       };
     };
     index: {
@@ -72,10 +72,10 @@ export function diffTokenLists(base: TokenInfo[], update: TokenInfo[]): TokenLis
       if (!baseToken) {
         memo.added.push(tokenInfo);
       } else {
-        const changes: TokenInfoChanges = Object.keys(tokenInfo)
-          .filter((s): s is TokenInfoChangeKey => s !== "address" && s !== "chainId")
+        const changes: StrategyIdChanges = Object.keys(tokenInfo)
+          .filter((s): s is StrategyIdChangeKey => s !== "address" && s !== "chainId")
           .filter((s) => {
-            return !compareTokenInfoProperty(tokenInfo[s], baseToken[s]);
+            return !compareStrategyIdProperty(tokenInfo[s], baseToken[s]);
           });
         if (changes.length > 0) {
           if (!memo.changed[tokenInfo.chainId]) {
@@ -98,7 +98,7 @@ export function diffTokenLists(base: TokenInfo[], update: TokenInfo[]): TokenLis
     { added: [], changed: {}, index: {} },
   );
 
-  const removed = base.reduce<TokenInfo[]>((list, curr) => {
+  const removed = base.reduce<StrategyId[]>((list, curr) => {
     if (!newListUpdates.index[curr.chainId] || !newListUpdates.index[curr.chainId][curr.address]) {
       list.push(curr);
     }

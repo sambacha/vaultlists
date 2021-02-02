@@ -1,4 +1,4 @@
-export interface TokenInfo {
+export interface StrategyId {
   readonly chainId: number;
   readonly address: string;
   readonly name: string;
@@ -25,7 +25,7 @@ export interface TokenList {
   readonly name: string;
   readonly timestamp: string;
   readonly version: Version;
-  readonly vaults: TokenInfo[];
+  readonly vaults: StrategyId[];
   readonly keywords?: string[];
   readonly tags?: Tags;
   readonly logoURI?: string;

@@ -1,6 +1,6 @@
-import { diffTokenLists, TokenInfo } from "../src";
+import { diffTokenLists, StrategyId } from "../src";
 
-const tokenA: TokenInfo = {
+const tokenA: StrategyId = {
   chainId: 1,
   address: "0x0a",
   logoURI: "ipfs://test",
@@ -9,16 +9,16 @@ const tokenA: TokenInfo = {
   decimals: 18,
   tags: ["hello", "world"],
 };
-const tokenAChangedNameDecimals: TokenInfo = {
+const tokenAChangedNameDecimals: StrategyId = {
   ...tokenA,
   name: "blah",
   decimals: 12,
 };
-const tokenAChangedTags: TokenInfo = {
+const tokenAChangedTags: StrategyId = {
   ...tokenA,
   tags: ["hello", "worlds"],
 };
-const tokenB: TokenInfo = {
+const tokenB: StrategyId = {
   chainId: 1,
   address: "0x0b",
   logoURI: "ipfs://blah",
