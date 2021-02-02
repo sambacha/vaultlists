@@ -1,7 +1,3 @@
 {
-  "collectCoverageFrom": [
-    "**/*.{js,jsx}",
-    "!**/node_modules/**",
-    "!**/vendor/**"
-  ]
+  "collectCoverageFrom": ["**/*.{js,jsx}", "!**/node_modules/**", "!**/vendor/**"]
 }

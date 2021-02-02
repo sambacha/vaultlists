@@ -1,8 +1,8 @@
 {
   "$schema": "http://json-schema.org/draft-07/schema#",
   "$id": "https://vaultlist.org/vaultlist.schema.json",
-  "title": "Uniswap Token List",
-  "description": "Schema for lists of vaults compatible with the Uniswap Interface",
+  "title": "yearn vault and strategy registry",
+  "description": "Schema for lists of vaults and strategies in the yearn ecosystem",
   "definitions": {
     "Version": {
       "type": "object",
@@ -18,7 +18,7 @@
       "properties": {
         "major": {
           "type": "integer",
-          "description": "The major version of the list. Must be incremented when vaults are removed from the list or token addresses are changed.",
+          "description": "The major version of the list. Must be incremented when vaults are removed from the list or contract addresses are changed.",
           "minimum": 0,
           "examples": [1, 2]
         },
