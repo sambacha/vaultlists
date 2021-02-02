@@ -522,7 +522,7 @@
       "get": {
         "tags": ["User"],
         "summary": "Gets vault statistics assocaited with a user. Total earnings, deposits, withdrawals, transfers.",
-        "description": "Currently earnings include token transfer events (such as zaps). This should be configurable in the future. Statistics come from the Yearn subgraph.\n",
+        "description": "Currently earnings include strategy transfer events (such as zaps). This should be configurable in the future. Statistics come from the Yearn subgraph.\n",
         "parameters": [
           {
             "name": "userAddress",

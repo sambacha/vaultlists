@@ -1,10 +1,10 @@
 {
-  "name": "@yfi/token-lists",
+  "name": "@yfi/strategy-lists",
   "version": "0.0.0",
   "description": "Vaults Registry List Specification",
   "license": "Apache-2.0",
   "main": "dist/index.js",
-  "module": "dist/token-lists.esm.js",
+  "module": "dist/strategy-lists.esm.js",
   "typings": "dist/index.d.ts",
   "files": [
     "dist",

@@ -47,7 +47,7 @@
     },
     "ExtensionIdentifier": {
       "type": "string",
-      "description": "The name of a token extension property",
+      "description": "The name of a strategy extension property",
       "minLength": 1,
       "maxLength": 30,
       "pattern": "^[\\w]+$",
@@ -76,7 +76,7 @@
     },
     "TagDefinition": {
       "type": "object",
-      "description": "Definition of a tag that can be associated with a token via its identifier",
+      "description": "Definition of a tag that can be associated with a strategy via its identifier",
       "additionalProperties": false,
       "properties": {
         "name": {
@@ -98,37 +98,37 @@
       "examples": [
         {
           "name": "Stablecoin",
-          "description": "A token with value pegged to another asset"
+          "description": "A strategy with value pegged to another asset"
         }
       ]
     },
     "StrategyId": {
       "type": "object",
-      "description": "Metadata for a single token in a token list",
+      "description": "Metadata for a single strategy in a strategy list",
       "additionalProperties": false,
       "properties": {
         "chainId": {
           "type": "integer",
-          "description": "The chain ID of the Ethereum network where this token is deployed",
+          "description": "The chain ID of the Ethereum network where this strategy is deployed",
           "minimum": 1,
           "examples": [1, 42]
         },
         "address": {
           "type": "string",
-          "description": "The checksummed address of the token on the specified chain ID",
+          "description": "The checksummed address of the strategy on the specified chain ID",
           "pattern": "^0x[a-fA-F0-9]{40}$",
           "examples": ["0xA0b86991c6218b36c1d19D4a2e9Eb0cE3606eB48"]
         },
         "decimals": {
           "type": "integer",
-          "description": "The number of decimals for the token balance",
+          "description": "The number of decimals for the strategy balance",
           "minimum": 0,
           "maximum": 255,
           "examples": [18]
         },
         "name": {
           "type": "string",
-          "description": "The name of the token",
+          "description": "The name of the strategy",
           "minLength": 1,
           "maxLength": 40,
           "pattern": "^[ \\w.'+\\-%/À-ÖØ-öø-ÿ\\:]+$",
@@ -136,7 +136,7 @@
         },
         "symbol": {
           "type": "string",
-          "description": "The symbol for the token; must be alphanumeric",
+          "description": "The symbol for the strategy; must be alphanumeric",
           "pattern": "^[a-zA-Z0-9+\\-%/\\$]+$",
           "minLength": 1,
           "maxLength": 20,
@@ -144,13 +144,13 @@
         },
         "logoURI": {
           "type": "string",
-          "description": "A URI to the token logo asset; if not set, interface will attempt to find a logo based on the token address; suggest SVG or PNG of size 64x64",
+          "description": "A URI to the strategy logo asset; if not set, interface will attempt to find a logo based on the strategy address; suggest SVG or PNG of size 64x64",
           "format": "uri",
           "examples": ["ipfs://QmXfzKRvjZz3u5JRgC4v5mGVbm9ahrUiB4DgzHBsnWbTMM"]
         },
         "tags": {
           "type": "array",
-          "description": "An array of tag identifiers associated with the token; tags are defined at the list level",
+          "description": "An array of tag identifiers associated with the strategy; tags are defined at the list level",
           "items": {
             "$ref": "#/definitions/TagIdentifier"
           },
@@ -159,7 +159,7 @@
         },
         "extensions": {
           "type": "object",
-          "description": "An object containing any arbitrary or vendor-specific token metadata",
+          "description": "An object containing any arbitrary or vendor-specific strategy metadata",
           "propertyNames": {
             "$ref": "#/definitions/ExtensionIdentifier"
           },
@@ -183,7 +183,7 @@
   "properties": {
     "name": {
       "type": "string",
-      "description": "The name of the token list",
+      "description": "The name of the strategy list",
       "minLength": 1,
       "maxLength": 20,
       "pattern": "^[\\w ]+$",
@@ -234,14 +234,14 @@
         {
           "stablecoin": {
             "name": "Stablecoin",
-            "description": "A token with value pegged to another asset"
+            "description": "A strategy with value pegged to another asset"
           }
         }
       ]
     },
     "logoURI": {
       "type": "string",
-      "description": "A URI for the logo of the token list; prefer SVG or PNG of size 256x256",
+      "description": "A URI for the logo of the strategy list; prefer SVG or PNG of size 256x256",
       "format": "uri",
       "examples": ["ipfs://QmXfzKRvjZz3u5JRgC4v5mGVbm9ahrUiB4DgzHBsnWbTMM"]
     }

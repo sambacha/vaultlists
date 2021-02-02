@@ -256,7 +256,7 @@
     {
       "address": "0x0000000000b3F879cb30FE243b4Dfee438691c04",
       "chainId": 1,
-      "name": "Gastoken.io",
+      "name": "Gasstrategy.io",
       "symbol": "GST2",
       "decimals": 2
     },
@@ -578,7 +578,7 @@
     {
       "address": "0x7C5A0CE9267ED19B22F8cae653F198e3E8daf098",
       "chainId": 1,
-      "name": "SANtiment network token",
+      "name": "SANtiment network strategy",
       "symbol": "SAN",
       "decimals": 18
     },
