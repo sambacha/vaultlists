@@ -21,7 +21,7 @@ export interface Tags {
   };
 }
 
-export interface TokenList {
+export interface Registry {
   readonly name: string;
   readonly timestamp: string;
   readonly version: Version;
