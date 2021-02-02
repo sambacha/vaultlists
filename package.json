@@ -1,0 +1,35 @@
+{
+  "name": "@yfi/token-lists",
+  "version": "0.0.0",
+  "description": "Vaults Registry List Specification",
+  "license": "Apache-2.0",
+  "main": "dist/index.js",
+  "module": "dist/token-lists.esm.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "tsdx build",
+    "lint": "tsdx lint",
+    "prepublishOnly": "tsdx test && tsdx build",
+    "sort": "npx sort-package-json",
+    "start": "tsdx watch",
+    "test": "tsdx test"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@exodus/schemasafe": "^1.0.0-rc.3",
+    "@types/ajv-keywords": "^3.4.0",
+    "ajv": "^6.12.2",
+    "eslint": "^7.7.0",
+    "eslint-plugin-json": "^2.1.2",
+    "husky": "^4.2.5",
+    "json2typescript": "^1.4.1",
+    "tsdx": "^0.14.0",
+    "tslib": "^2.0.0",
+    "typescript": "^3.9.5"
+  },
+  "peerDependencies": {}
+}
