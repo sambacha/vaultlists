@@ -1,4 +1,4 @@
-name: Tests
+name: nodejs
 on:
   push:
     branches:
@@ -10,13 +10,13 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ["10", "12"]
+        node: ["12.x", "14.x"]
     name: Node ${{ matrix.node }}
     steps:
       - uses: actions/checkout@v2
       - name: Setup node
-        uses: actions/setup-node@v1
+        uses: actions/setup-node@v2.1.4
         with:
           node-version: ${{ matrix.node }}
       - run: npm install
-      - run: npm test
+      - run: npm build
