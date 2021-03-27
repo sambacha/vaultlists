@@ -1,8 +1,10 @@
 /**
- * Enum describing types of version differences
+ * @file getVersionUpgrade
+ * @summary Enum describing types of version differences
  */
 import { Version } from "./types";
 
+// @exports VersionUpgrade
 export enum VersionUpgrade {
   NONE,
   PATCH,
@@ -15,6 +17,8 @@ export enum VersionUpgrade {
  * Note that downgrades and equivalent versions are both treated as `NONE`.
  * @param base base list
  * @param update update to the list
+ * @type {number}
+ * @exports getVersionUpgrade
  */
 export function getVersionUpgrade(base: Version, update: Version): VersionUpgrade {
   if (update.major > base.major) {
