@@ -1,6 +1,6 @@
 {
   "name": "yearn-strategy-lists",
-  "version": "0.0.1",
+  "version": "0.3.0",
   "description": "Vaults Registry List Specification",
   "license": "SSPL-1.0",
   "main": "dist/index.js",
