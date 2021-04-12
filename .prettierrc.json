@@ -1,12 +1,15 @@
 {
-  "printWidth": 100,
-  "tabWidth": 2,
-  "useTabs": false,
-  "semi": true,
-  "singleQuote": false,
-  "trailingComma": "all",
-  "bracketSpacing": true,
-  "jsxBracketSameLine": true,
+  "$schema": "http://json.schemastore.org/prettierrc",
   "arrowParens": "always",
-  "proseWrap": "always"
+  "bracketSpacing": true,
+  "jsxBracketSameLine": false,
+  "jsxSingleQuote": false,
+  "printWidth": 80,
+  "proseWrap": "always",
+  "quoteProps": "as-needed",
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 2,
+  "trailingComma": "all",
+  "useTabs": false
 }

@@ -2,7 +2,7 @@
  * @file getVersionUpgrade
  * @summary Enum describing types of version differences
  */
-import { Version } from "./types";
+import { Version } from './types';
 
 // @exports VersionUpgrade
 export enum VersionUpgrade {
@@ -20,7 +20,10 @@ export enum VersionUpgrade {
  * @type {number}
  * @exports getVersionUpgrade
  */
-export function getVersionUpgrade(base: Version, update: Version): VersionUpgrade {
+export function getVersionUpgrade(
+  base: Version,
+  update: Version,
+): VersionUpgrade {
   if (update.major > base.major) {
     return VersionUpgrade.MAJOR;
   }

@@ -1,6 +1,9 @@
-import { StrategyId } from "./types";
+import { StrategyId } from './types';
 
-export type StrategyIdChangeKey = Exclude<keyof StrategyId, "address" | "chainId">;
+export type StrategyIdChangeKey = Exclude<
+  keyof StrategyId,
+  'address' | 'chainId'
+>;
 export type StrategyIdChanges = Array<StrategyIdChangeKey>;
 
 /**
@@ -41,11 +44,14 @@ export interface TokenListDiff {
 }
 
 /**
- * Computes the diff of a token list where the first argument is the base and the second argument is the updated list.
+ * Computes the diff of a deployed vault where the first argument is the base and the second argument is the updated list.
  * @param base base list
  * @param update updated list
  */
-export function diffTokenLists(base: StrategyId[], update: StrategyId[]): TokenListDiff {
+export function diffVaultLists(
+  base: StrategyId[],
+  update: StrategyId[],
+): TokenListDiff {
   const indexedBase = base.reduce<{
     [chainId: number]: { [address: string]: StrategyId };
   }>((memo, tokenInfo) => {
@@ -73,7 +79,9 @@ export function diffTokenLists(base: StrategyId[], update: StrategyId[]): TokenL
         memo.added.push(tokenInfo);
       } else {
         const changes: StrategyIdChanges = Object.keys(tokenInfo)
-          .filter((s): s is StrategyIdChangeKey => s !== "address" && s !== "chainId")
+          .filter(
+            (s): s is StrategyIdChangeKey => s !== 'address' && s !== 'chainId',
+          )
           .filter((s) => {
             return !compareStrategyIdProperty(tokenInfo[s], baseToken[s]);
           });
@@ -99,7 +107,10 @@ export function diffTokenLists(base: StrategyId[], update: StrategyId[]): TokenL
   );
 
   const removed = base.reduce<StrategyId[]>((list, curr) => {
-    if (!newListUpdates.index[curr.chainId] || !newListUpdates.index[curr.chainId][curr.address]) {
+    if (
+      !newListUpdates.index[curr.chainId] ||
+      !newListUpdates.index[curr.chainId][curr.address]
+    ) {
       list.push(curr);
     }
     return list;

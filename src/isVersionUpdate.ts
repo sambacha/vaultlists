@@ -1,5 +1,5 @@
-import { versionComparator } from "./versionComparator";
-import { Version } from "./types";
+import { versionComparator } from './versionComparator';
+import { Version } from './types';
 
 /**
  * Returns true if versionB is an update over versionA
