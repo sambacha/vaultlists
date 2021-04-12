@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 /**
  * @title Given a URI that may be ipfs, ipns, http, or https protocol
  * @function: return the fetch-able http(s) URLs for the same content
